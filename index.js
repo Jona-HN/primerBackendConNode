@@ -18,6 +18,16 @@ app.get('/', (request, response) => {
     response.send(html);
 })
 
+app.get('/:url', (req, res) => {
+    let html = "";
+    html = html.concat('<h2>Request headers:</h2>')
+               .concat(JSON.stringify(req.headers, null, '\t'))
+               .concat('<br />')
+               .concat(`<h2>Método: ${req.method}</h2>`)
+               .concat(`<h2>URL: ${req.url}</h2>`);
+    res.send(html);
+});
+
 server.listen(puerto, () => {
     console.log('Iniciando el servidor HTTPs...');
     console.log(`Escuchando el puerto ${puerto}`);
