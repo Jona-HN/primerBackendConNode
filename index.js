@@ -18,11 +18,13 @@ const forma = require('./routes/forma');
 app.use('/forma', forma);
 
 // Métodos GET
+// Petición GET para mostrar la vista principal
 app.get('/', (request, response) => {
     let html = "<h1>Hello world!</h1> <p>Este servidor cuenta con protocolo HTTPs</p>";
     response.send(html);
 })
 
+// Pétición GET para mostrar los datos recibidos por URL
 app.get('/:url', (req, res) => {
     let html = "";
     html = html.concat('<h2>Request headers:</h2>')

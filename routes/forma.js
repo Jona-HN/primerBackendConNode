@@ -2,14 +2,17 @@ const express = require('express');
 const app = express.Router();
 const path = require('path');
 
+// Middleware
 app.use(express.urlencoded({
     extended: true
 }));
 
+// Petición GET para mostrar la forma
 app.get('/', (req, res) => {
     res.sendFile(path.resolve('public/forma.html'));
 });
 
+// Petición POST para recibir los datos
 app.post('/', (req, res, next) => {
     console.log(req.body);
     let html = "";
