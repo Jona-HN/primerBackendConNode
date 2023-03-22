@@ -11,8 +11,13 @@ const options = {
     key: fs.readFileSync('key.pem'),
     cert: fs.readFileSync('cert.pem')
 }
-const server = https.createServer(options, app);
+const server = https.createServer(options, app); 
 
+// Rutas
+const forma = require('./routes/forma');
+app.use('/forma', forma);
+
+// Métodos GET
 app.get('/', (request, response) => {
     let html = "<h1>Hello world!</h1> <p>Este servidor cuenta con protocolo HTTPs</p>";
     response.send(html);
